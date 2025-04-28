@@ -1,0 +1,5 @@
+def calculator():
+    op = input("Enter operation (+, -, *, /): ")
+    a, b = map(float, input("Enter two numbers: ").)
+    print(eval(f"{a} {op} {b}"))
+calculator()
