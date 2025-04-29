@@ -1,0 +1,30 @@
+from collections import deque
+
+def water_jug_problem(capacity, target):
+    queue = deque([(0, 0)])  # (jug1, jug2)
+    visited = set()
+    
+    while queue:
+        jug1, jug2 = queue.popleft()
+        if jug1 == target or jug2 == target:
+            return True
+        if (jug1, jug2) in visited:
+            continue
+        visited.add((jug1, jug2))
+        
+        # Possible operations
+        queue.extend([
+            (capacity[0], jug2),  # Fill jug1
+            (jug1, capacity[1]),  # Fill jug2
+            (0, jug2),            # Empty jug1
+            (jug1, 0),            # Empty jug2
+            (max(0, jug1 - (capacity[1] - jug2)), min(capacity[1], jug1 + jug2)),  # Pour jug1 to jug2
+            (min(capacity[0], jug1 + jug2), max(0, jug2 - (capacity[0] - jug1)))   # Pour jug2 to jug1
+        ])
+    
+    return False
+
+# Example usage
+capacity = (4, 3)  # Jug capacities
+target = 2         # Target amount
+print(water_jug_problem(capacity, target))  # Output: True or False
