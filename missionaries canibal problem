@@ -1,0 +1,25 @@
+def is_safe(m, c):
+    return m == 0 or m >= c
+
+def solve(m, c, boat, left, right):
+    if m == 0 and c == 0:
+        return [left, right]
+    if not is_safe(m, c) or not is_safe(left[0], left[1]):
+        return None
+    moves = []
+    for i in range(3):
+        if boat == 'left':
+            new_left = (left[0] - (i // 2), left[1] - (i % 2))
+            new_right = (right[0] + (i // 2), right[1] + (i % 2))
+        else:
+            new_left = (left[0] + (i // 2), left[1] + (i % 2))
+            new_right = (right[0] - (i // 2), right[1] - (i % 2))
+        if new_left[0] >= 0 and new_left[1] >= 0 and new_right[0] >= 0 and new_right[1] >= 0:
+            result = solve(new_left[0], new_left[1], 'right' if boat == 'left' else 'left', new_left, new_right)
+            if result:
+                moves.append(result)
+    return moves
+
+initial_state = (3, 3)
+solution = solve(initial_state[0], initial_state[1], 'left', initial_state, (0, 0))
+print(solution)
