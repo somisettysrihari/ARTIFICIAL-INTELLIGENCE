@@ -1,0 +1,9 @@
+import sympy as sp
+
+def solve_expression(expr):
+    return sp.sympify(expr).evalf()
+
+# Example usage
+problem = "3 + 5 * (2 - 1)"
+result = solve_expression(problem)
+print(f"The result of '{problem}' is: {result}")
