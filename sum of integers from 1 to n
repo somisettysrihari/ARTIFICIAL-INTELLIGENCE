@@ -1,9 +1,0 @@
-# Sum of integers from 1 to n
-
-def sum_of_integers(n):
-    return sum(range(1, n + 1))
-
-# Example usage
-n = 10
-result = sum_of_integers(n)
-print(f"The sum of integers from 1 to {n} is {result}")
