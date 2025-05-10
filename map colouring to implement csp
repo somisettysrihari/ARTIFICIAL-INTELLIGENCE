@@ -1,0 +1,25 @@
+from itertools import product
+
+def is_valid(colouring, graph, node, colour):
+    return all(colouring[neighbour] != colour for neighbour in graph[node])
+
+def backtrack(graph, colours, colouring, node=0):
+    if node == len(graph):
+        return colouring
+    for colour in colours:
+        if is_valid(colouring, graph, node, colour):
+            colouring[node] = colour
+            result = backtrack(graph, colours, colouring, node + 1)
+            if result:
+                return result
+            colouring[node] = None
+    return None
+
+def map_colouring(graph, colours):
+    return backtrack(graph, colours, [None] * len(graph))
+
+# Example usage
+graph = {0: [1, 2], 1: [0, 2], 2: [0, 1]}  # Adjacency list representation
+colours = ['Red', 'Green', 'Blue']
+solution = map_colouring(graph, colours)
+print(solution)
