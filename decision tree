@@ -1,0 +1,10 @@
+from sklearn import tree
+
+# Create a decision tree classifier
+clf = tree.DecisionTreeClassifier()
+
+# Fit the classifier to the training data
+clf.fit(X_train, y_train)
+
+# Make predictions
+predictions = clf.predict(X_test)
