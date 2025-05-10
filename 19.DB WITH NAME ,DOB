@@ -1,0 +1,7 @@
+% person(Name, DOB).
+% DOB is represented as dob(Year, Month, Day)
+
+person('Alice', dob(1995, 6, 12)).
+person('Bob', dob(2000, 1, 25)).
+person('Charlie', dob(1992, 11, 5)).
+person('Diana', dob(1988, 3, 19)).
