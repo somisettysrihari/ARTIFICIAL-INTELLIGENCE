@@ -1,4 +1,0 @@
-teaches(mr_smith, math101).
-teaches(ms_jones, cs102).
-student(john, math101).
-student(alice, cs102).

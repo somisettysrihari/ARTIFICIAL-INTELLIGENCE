@@ -1,0 +1,15 @@
+% subject(Code, Name).
+subject(cs101, 'Artificial Intelligence').
+subject(cs102, 'Theory of Computation').
+subject(cs103, 'Compiler Design').
+
+% teacher(Name, SubjectCode).
+teacher('Dr. Rao', cs101).
+teacher('Prof. Meena', cs102).
+teacher('Dr. Sharma', cs103).
+
+% student(Name, SubjectCode).
+student('Srihari', cs101).
+student('Anil', cs102).
+student('Bhavana', cs101).
+student('Ritika', cs103).
