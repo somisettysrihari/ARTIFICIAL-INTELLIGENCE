@@ -1,0 +1,18 @@
+import numpy as np
+
+class FeedForwardNN:
+    def __init__(self, layers):
+        self.weights = [np.random.randn(layers[i], layers[i+1]) for i in range(len(layers)-1)]
+    
+    def sigmoid(self, x):
+        return 1 / (1 + np.exp(-x))
+    
+    def feedforward(self, x):
+        for w in self.weights:
+            x = self.sigmoid(np.dot(x, w))
+        return x
+
+# Example usage
+nn = FeedForwardNN([2, 3, 1])
+output = nn.feedforward(np.array([0.5, 0.1]))
+print(output)
